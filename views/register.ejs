@@ -1,0 +1,9 @@
+<% layout('layout') -%>
+<div>
+	<h1 ng-click="getCourses()">BU StudentLink</h1>
+	<p class="lead">A Course Registration System</p>
+</div>
+<div ng-repeat="each in courses">
+	<span>{{each}}</span>
+</div>
+

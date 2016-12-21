@@ -23,6 +23,7 @@
 //= require lib/bootstrap.min
 //= require lib/zxcvbn
 //= require lib/v-modal.min
+//= require lib/bower_components/angular-ui-router/release/angular-ui-router.min
 
 
 /* LIST OF CUSTOM JS CODE FILES */
@@ -30,3 +31,5 @@
 //= require common/pswStrengthComponent
 //= require common/userController
 //= require common/contactController
+
+

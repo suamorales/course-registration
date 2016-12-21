@@ -18,8 +18,8 @@ var methodOverride = require('method-override');
 var multer = require('multer');
 var ejsEngine = require('ejs-mate');
 var Promise = require('bluebird');
-
-//var MySQLStore = require('connect-mysql')({ session: session });
+var mysql = require('mysql');
+var MySQLStore = require('connect-mysql')({ session: session });
 var flash = require('express-flash');
 var path = require('path');
 var passport = require('passport');
@@ -33,7 +33,8 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
-
+var courseController = require('./controllers/course');
+var registerController = require('./controllers/register');
 /**
  * API keys and Passport configuration.
  */
@@ -79,33 +80,40 @@ Promise.longStackTraces();
 
 var db = require('./models/sequelize');
 
+
 //MySQL Store
-/*
+
+var options = {
+      config: {
+        user: 'root',
+        password: '',
+        database: 'course_registration',
+        secret: 'helloworld'
+      }
+    };
+
 app.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: secrets.sessionSecret,
-  store: new MySQLStore({
-    config: secrets.mysql,
-    table: secrets.mysql.sessionTable
-  })
+  secret: 'helloworld',
+  store: new MySQLStore(options)
 }));
-*/
+
 //PostgreSQL Store
-app.use(session({
-  store: new pgSession({
-    conString: secrets.postgres,
-    tableName: secrets.sessionTable
-  }),
-  secret: secrets.sessionSecret,
-  saveUninitialized: true,
-  resave: false,
-  cookie: {
-    maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-    httpOnly: true
-    //, secure: true // only when on HTTPS
-  }
-}));
+// app.use(session({
+//   store: new pgSession({
+//     conString: secrets.postgres,
+//     tableName: secrets.sessionTable
+//   }),
+//   secret: secrets.sessionSecret,
+//   saveUninitialized: true,
+//   resave: false,
+//   cookie: {
+//     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+//     httpOnly: true
+//     //, secure: true // only when on HTTPS
+//   }
+// }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -151,6 +159,13 @@ app.post('/account/password', passportConf.isAuthenticated, userController.postU
 app.delete('/account', passportConf.isAuthenticated, userController.deleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
+app.get('/courses', courseController.getCourses);
+//app.get('/course/:id', courseController.getCourse);
+
+app.get('/register', registerController.getRegistrationView);
+//app.post('/register/:studentid/:classid', registerController.register);
+
+
 /**
  * API examples routes.
  */
@@ -180,6 +195,8 @@ app.get('/api/paypal/cancel', apiController.getPayPalCancel);
 app.get('/api/lob', apiController.getLob);
 app.get('/api/bitgo', apiController.getBitGo);
 app.post('/api/bitgo', apiController.postBitGo);
+
+
 
 function safeRedirectToReturnTo(req, res) {
   var returnTo = req.session.returnTo || '/';
@@ -218,5 +235,7 @@ db
         console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
       });
   });
+
+
 
 module.exports = app;

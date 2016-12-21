@@ -5,7 +5,16 @@ var fs = require('fs')
   , config = require('../../config/secrets')
   , db = {};
 
-var sequelize = new Sequelize(config.postgres, { maxConcurrentQueries: 100 });
+var sequelize = new Sequelize('course_registration', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql',
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  },
+});
+
 
 fs
   .readdirSync(__dirname)

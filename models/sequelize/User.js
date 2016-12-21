@@ -56,6 +56,10 @@ module.exports = function(db, DataTypes) {
       primaryKey: true
     },
     password: DataTypes.STRING,
+    firstName: DataTypes.STRING,
+    middleName: DataTypes.STRING,
+    gender: DataTypes.STRING,
+    graduationYear: DataTypes.INTEGER,
     googleId: {
       type: DataTypes.STRING,
       unique: true

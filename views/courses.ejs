@@ -1,0 +1,9 @@
+<% layout('layout') -%>
+
+<h1>All Courses</h1>
+
+<ul>
+    <% courses.forEach(function(course) { %>
+    <li> <%= course.courseName %> </li>
+  <% }); %>
+</ul>
