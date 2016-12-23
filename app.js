@@ -169,7 +169,7 @@ app.get('/subject/:id/courses', passportConf.isAuthenticated, registerController
 app.get('/current-courses', passportConf.isAuthenticated,registerController.getCurrentCourses);
 
 app.post('/register/:courseId', passportConf.isAuthenticated, registerController.register);
-
+app.post('/deregister/:courseId', passportConf.isAuthenticated, registerController.deregister);
 /**
  * API examples routes.
  */
