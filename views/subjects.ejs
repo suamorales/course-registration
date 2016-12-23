@@ -1,0 +1,12 @@
+<% layout('layout') -%>
+<div>
+	<h1 ng-click="getCourses()">BU StudentLink</h1>
+	<p class="lead">A Course Registration System</p>
+</div>
+
+
+<ul>
+	<% subjects.forEach(function(subject){ %>
+<a href="/subject/<%= subject.id %>/courses"> <li> <%= subject.subject %> <li></a>
+	<% }) %>
+<ul>

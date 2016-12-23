@@ -1,0 +1,15 @@
+<% layout('layout') -%>
+
+<% courses.forEach(function(course){ %>
+	<p>
+	<%= course.number %> : <%= course.name %>  (<%= course.capacity %> seats remaining)
+	
+	<% if ( registrations.indexOf(course.id) === -1){ %>
+		<form method="post" action="/register/<%= course.id %>">
+			<input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+		  	<input type="submit" value="register">
+		</form>
+	<% } %>
+
+	</p>
+<% }) %>

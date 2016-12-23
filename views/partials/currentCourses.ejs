@@ -1,0 +1,20 @@
+<% layout('layout') -%>
+
+<h1>BU StudentLink</h1>
+<p class="lead">A Course Registration System</p>
+<hr/>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Current Courses 1</h2>
+  </div>
+  <div>
+
+  <div>
+  <%= currentCourses %>
+  <% currentCourses.forEach(function(course) { %>
+   <span> <%= course %> </span>
+  <% }) %>
+  </div>
+
+</div>

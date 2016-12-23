@@ -17,23 +17,23 @@ var crypto = require('crypto');
 
 module.exports = function(db, DataTypes) {
   var Registration = db.define('Registration', {
-    studentId: {
+    id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true
     },
-    classOne: DataTypes.INTEGER,
-    classTwo: DataTypes.INTEGER,
-    classThree: DataTypes.INTEGER, 
-    classFour: DataTypes.INTEGER,
+    studentId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    classId: DataTypes.INTEGER,
     createdAt:  { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
     updatedAt:  { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
   }, {
     tableName: 'registrations',
     classMethods: {
       associate: function(models) {
-        //User.hasMany(models.Role);
       }
     }
   });

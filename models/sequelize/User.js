@@ -56,10 +56,6 @@ module.exports = function(db, DataTypes) {
       primaryKey: true
     },
     password: DataTypes.STRING,
-    firstName: DataTypes.STRING,
-    middleName: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    graduationYear: DataTypes.INTEGER,
     googleId: {
       type: DataTypes.STRING,
       unique: true
@@ -98,7 +94,7 @@ module.exports = function(db, DataTypes) {
     instanceMethods: instanceMethods,
     classMethods: {
       associate: function(models) {
-        //User.hasMany(models.Role);
+        // User.hasMany(models.Registration);
       },
       encryptPassword: function(password, cb) {
         if (!password) {

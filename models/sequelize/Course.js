@@ -28,16 +28,14 @@ module.exports = function(db, DataTypes) {
     description: DataTypes.STRING,
     name: DataTypes.STRING,
     number: DataTypes.STRING,
-    fall: DataTypes.BOOLEAN,
-    spring: DataTypes.BOOLEAN,
-    summer: DataTypes.BOOLEAN,
+    capacity: DataTypes.INTEGER,
     createdAt:  { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
     updatedAt:  { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
   }, {
     tableName: 'courses',
     classMethods: {
       associate: function(models) {
-        //User.hasMany(models.Role);
+
       }
     }
   });
