@@ -140,5 +140,5 @@ if(process.env.NODE_ENV === 'test-travis') {
 } else if(process.env.NODE_ENV === 'test') {
   module.exports.postgres = 'postgres://yhnavein:123@127.0.0.1/test';
 } else {
-  module.exports.mysql = process.env.DATABASE_URL || 'root@127.0.0.1';
+  module.exports.mysql = process.env.DATABASE_URL || 'mysql://b3b2d36bdf806e:9df7b11c@us-cdbr-iron-east-04.cleardb.net/heroku_d1f5087a2a4be69?reconnect=true';
 }
