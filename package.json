@@ -13,6 +13,7 @@
     "test-debug": "NODE_ENV=test node_modules/.bin/mocha --debug --debug-brk"
   },
   "dependencies": {
+    "async": "*",
     "bcrypt-nodejs": "0.0.3",
     "bitgo": "^1.6.1",
     "bluebird": "^3.3.5",
