@@ -82,11 +82,10 @@ var db = require('./models/sequelize');
 
 
 //MySQL Store
-
 var options = {
       config: {
-        user: 'root',
-        password: '',
+        user: 'b3b2d36bdf806e',
+        password: '9df7b11c',
         database: 'course_registration',
         secret: 'helloworld'
       }
