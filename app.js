@@ -84,6 +84,7 @@ var db = require('./models/sequelize');
 //MySQL Store
 var options = {
       config: {
+        host: 'us-cdbr-iron-east-04.cleardb.net',
         user: 'b3b2d36bdf806e',
         password: '9df7b11c',
         database: 'heroku_d1f5087a2a4be69',
