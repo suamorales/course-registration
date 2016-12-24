@@ -5,8 +5,8 @@ var fs = require('fs')
   , config = require('../../config/secrets')
   , db = {};
 
-var sequelize = new Sequelize('course_registration', 'root', '', {
-  host: 'localhost',
+var sequelize = new Sequelize('heroku_d1f5087a2a4be69', 'b3b2d36bdf806e', '9df7b11c', {
+  host: 'us-cdbr-iron-east-04.cleardb.net',
   dialect: 'mysql',
   pool: {
     max: 5,
