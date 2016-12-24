@@ -10,7 +10,7 @@ module.exports = function(db, DataTypes) {
             primaryKey: true
         },
         sess: {
-            type: DataTypes.JSON,
+            type: DataTypes.STRING,
             allowNull: false
         },
         expire: {
