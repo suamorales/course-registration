@@ -14,7 +14,7 @@ module.exports = function(db, DataTypes) {
             allowNull: false
         },
         expire: {
-            type: DataTypes.DATE(6),
+            type: DataTypes.DATE,
             allowNull: false
         }
     }, {

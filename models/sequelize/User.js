@@ -87,8 +87,8 @@ module.exports = function(db, DataTypes) {
       allowNull: false,
       isEmail: true
     },
-    profile: DataTypes.JSON,
-    tokens: DataTypes.JSON
+    profile: DataTypes.STRING,
+    tokens: DataTypes.STRING
   }, {
     tableName: 'pl_users',
     instanceMethods: instanceMethods,
