@@ -86,7 +86,7 @@ var options = {
       config: {
         user: 'b3b2d36bdf806e',
         password: '9df7b11c',
-        database: 'course_registration',
+        database: 'heroku_d1f5087a2a4be69',
         secret: 'helloworld'
       }
     };
