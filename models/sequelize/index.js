@@ -11,7 +11,7 @@ var sequelize = new Sequelize('heroku_d1f5087a2a4be69', 'b3b2d36bdf806e', '9df7b
   pool: {
     max: 5,
     min: 0,
-    idle: 10000
+    idle: 5000
   },
 });
 
